@@ -1,0 +1,173 @@
+{
+  "notifications": {
+    "active": true,
+    "message": "🔥 تم تحديث مكتبة المتجر بـ +50 لعبة وتطبيق بلس مهكر لعام 2026!"
+  },
+  "apps": [
+    {
+      "id": "pool",
+      "name": "Star 8Ball Pool +",
+      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
+      "version": "5300",
+      "size": "124 MB",
+      "icon": "https://i.imgur.com/7H3Z0m2.png",
+      "desc": "هكـر سهم طويل، تعديل فوري، وكشف الكرات بدقة عالية بدون حظر.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/pool.plist",
+      "needsUpdate": true
+    },
+    {
+      "id": "pubg",
+      "name": "PUBG Mobile Hack +",
+      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
+      "version": "3.2.0",
+      "size": "1.8 GB",
+      "icon": "https://i.imgur.com/3QoG6w3.png",
+      "desc": "كشف أماكن اللاعبين (إسبوت)، هيدشوت تلقائي، وإزالة الارتداد بالكامل.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/pubg.plist",
+      "needsUpdate": true
+    },
+    {
+      "id": "brawl",
+      "name": "Brawl Stars Mod +",
+      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
+      "version": "56.0",
+      "size": "450 MB",
+      "icon": "https://i.imgur.com/8QWv7p1.png",
+      "desc": "جواهر غير محدودة، فتح جميع الشخصيات والجلود القتالية مجاناً.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/brawl.plist",
+      "needsUpdate": true
+    },
+    {
+      "id": "subway",
+      "name": "Subway Surfers Hack",
+      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
+      "version": "3.15",
+      "size": "180 MB",
+      "icon": "https://i.imgur.com/1Z9x8k2.png",
+      "desc": "عملات ومفاتيح لا نهائية، قفزة خارقة وعدم الموت عند الاصطدام.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/subway.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft PE Deluxe",
+      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
+      "version": "1.20.80",
+      "size": "600 MB",
+      "icon": "https://i.imgur.com/7H3Z0m2.png",
+      "desc": "النسخة الكاملة المفتوحة، جلود وبصمات نادرة بدون شراء مسبق.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/minecraft.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok ++ (بدون إعلانات)",
+      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
+      "version": "34.5",
+      "size": "95 MB",
+      "icon": "https://i.imgur.com/3QoG6w3.png",
+      "desc": "إزالة الإعلانات بالكامل، تحميل الفيديوهات بدون حقوق، تغيير الموقع.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/tiktok.plist",
+      "needsUpdate": true
+    },
+    {
+      "id": "snap",
+      "name": "Snapchat Phantom ++",
+      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
+      "version": "12.8",
+      "size": "140 MB",
+      "icon": "https://i.imgur.com/8QWv7p1.png",
+      "desc": "حفظ الستوري والرسائل سراَ، إخفاء جاري الكتابة ومشاهدة الـ Snap بدون علم الطرف الآخر.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/snap.plist",
+      "needsUpdate": true
+    },
+    {
+      "id": "insta",
+      "name": "Instagram Rocket +",
+      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
+      "version": "310.0",
+      "size": "115 MB",
+      "icon": "https://i.imgur.com/1Z9x8k2.png",
+      "desc": "تحميل الصور والفيديوهات والريلز بضغطة زر، إخفاء مشاهدة الرسائل.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/insta.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp Watusi",
+      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
+      "version": "2.26",
+      "size": "85 MB",
+      "icon": "https://i.imgur.com/7H3Z0m2.png",
+      "desc": "إخفاء الظهور، قراءة المحذوفات، حفظ الحالات، وقفل الواتساب ببصمة.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/whatsapp.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "twitter",
+      "name": "Twitter / X Pro ++",
+      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
+      "version": "10.4",
+      "size": "90 MB",
+      "icon": "https://i.imgur.com/3QoG6w3.png",
+      "desc": "تحميل الفيديوهات مباشرة من التغريدات، إيقاف الإعلانات الترويجية.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/twitter.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube Plus (uYouEnhanced)",
+      "category": "🎬 برامج الترفيه والميديا بلس",
+      "version": "19.2",
+      "size": "110 MB",
+      "icon": "https://i.imgur.com/8QWv7p1.png",
+      "desc": "تشغيل الفيديوهات بالخلفية، حظر الإعلانات تماماً، تحميل المقاطع بجودات عالية.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/youtube.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch Turbo ++",
+      "category": "🎬 برامج الترفيه والميديا بلس",
+      "version": "17.1",
+      "size": "75 MB",
+      "icon": "https://i.imgur.com/1Z9x8k2.png",
+      "desc": "منع الإعلانات البثية، تشغيل البثوث بالخلفية وبجودة عالية جداً.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/twitch.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify Premium ++",
+      "category": "🎬 برامج الترفيه والميديا بلس",
+      "version": "8.9",
+      "size": "95 MB",
+      "icon": "https://i.imgur.com/7H3Z0m2.png",
+      "desc": "تخطي غير محدود للأغاني، استماع بدون إعلانات، وتحميل الأغاني أوفلاين.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/spotify.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "picsart",
+      "name": "PicsArt Gold Pro",
+      "category": "🎨 أدوات التصميم وصناعة المحتوى",
+      "version": "22.5",
+      "size": "130 MB",
+      "icon": "https://i.imgur.com/3QoG6w3.png",
+      "desc": "فتح جميع الفلاتر، القوالب المدفوعة، والأدوات الاحترافية مجاناً.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/picsart.plist",
+      "needsUpdate": false
+    },
+    {
+      "id": "capcut",
+      "name": "CapCut Pro VIP",
+      "category": "🎨 أدوات التصميم وصناعة المحتوى",
+      "version": "10.8",
+      "size": "210 MB",
+      "icon": "https://i.imgur.com/8QWv7p1.png",
+      "desc": "تأثيرات الفيديو المدفوعة، إزالة العلامة المائية، وقوالب المونتاج الاحترافية.",
+      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/capcut.plist",
+      "needsUpdate": true
+    }
+  ]
+}
