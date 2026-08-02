@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWS Store + متجر تطبيقات البلس الشامل</title>
+    <style>
+        body { background-color: #0b0d17; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 15px; }
+        .container { max-width: 500px; margin: 0 auto; }
+        
+        /* شاشة التحقق */
+        .card { background: #16192b; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 20px; text-align: center; border: 1px solid #2d3748; }
+        h1 { font-size: 20px; margin-bottom: 5px; color: #00d2ff; }
+        p { color: #a0aec0; font-size: 12px; margin-bottom: 15px; line-height: 1.5; }
+        .input-udid { width: 100%; padding: 12px; background: #0b0d17; border: 1px solid #2d3748; color: white; border-radius: 10px; font-size: 13px; text-align: center; margin-bottom: 10px; box-sizing: border-box; }
+        .btn { display: block; width: 100%; padding: 12px; background: linear-gradient(135deg, #00d2ff, #3a7bd5); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 14px; border: none; cursor: pointer; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,210,255,0.3); }
+        .btn-secondary { background: #2d3748; margin-top: 8px; font-size: 12px; padding: 10px; box-shadow: none; }
+        .btn-success { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+        
+        .status-box { margin-top: 15px; padding: 12px; border-radius: 10px; font-size: 12px; display: none; text-align: right; }
+        .active { background: #22543d; color: #68d391; display: block; }
+        .inactive { background: #742a2a; color: #fc8181; display: block; }
+
+        /* المتجر وتطبيقاته */
+        #storeSection { display: none; }
+        .notification-banner { background: linear-gradient(135deg, #d97706, #b45309); color: white; padding: 12px; border-radius: 12px; font-size: 12px; margin-bottom: 20px; text-align: center; font-weight: bold; box-shadow: 0 4px 15px rgba(217,119,6,0.3); display: none; }
+        .section-title { font-size: 15px; color: #fff; margin: 20px 0 10px 0; text-align: right; border-right: 3px solid #00d2ff; padding-right: 8px; }
+        .app-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .app-card { background: #16192b; padding: 12px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #2d3748; cursor: pointer; transition: 0.2s; }
+        .app-card:hover { border-color: #00d2ff; }
+        .app-info { display: flex; align-items: center; gap: 10px; text-align: right; }
+        .app-icon { width: 50px; height: 50px; border-radius: 13px; background: #2d3748; object-fit: cover; }
+        .app-details h3 { font-size: 13px; margin: 0 0 3px 0; color: #fff; }
+        .app-details span { font-size: 10px; color: #a0aec0; display: block; }
+        .install-btn { background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 7px 14px; border-radius: 8px; font-size: 11px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 10px rgba(16,185,129,0.3); }
+        .update-badge { background: #742a2a; color: #fc8181; padding: 2px 6px; border-radius: 4px; font-size: 9px; margin-right: 5px; }
+
+        /* صفحة تفاصيل التطبيق المنبثقة */
+        #appDetailsModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11,13,23,0.95); z-index: 100; overflow-y: auto; padding: 20px; box-sizing: border-box; }
+        .modal-content { max-width: 450px; margin: 30px auto; background: #16192b; border-radius: 20px; padding: 20px; border: 1px solid #2d3748; text-align: center; }
+        .modal-header { display: flex; align-items: center; gap: 15px; text-align: right; margin-bottom: 20px; border-bottom: 1px solid #2d3748; padding-bottom: 15px; }
+        .modal-icon { width: 75px; height: 75px; border-radius: 18px; object-fit: cover; }
+        .modal-info h2 { font-size: 16px; margin: 0 0 5px 0; color: #fff; }
+        .modal-info p { font-size: 11px; color: #00d2ff; margin: 0; }
+        .stats-row { display: flex; justify-content: space-around; background: #0b0d17; padding: 10px; border-radius: 12px; margin-bottom: 15px; font-size: 11px; color: #a0aec0; }
+        .stats-row b { color: #fff; display: block; font-size: 13px; }
+        .modal-desc { text-align: right; font-size: 12px; color: #cbd5e0; line-height: 1.6; margin-bottom: 20px; background: #0b0d17; padding: 12px; border-radius: 12px; }
+        
+        .footer { text-align: center; margin-top: 30px; color: #718096; font-size: 11px; border-top: 1px solid #1a202c; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- مرحلة التحقق من الـ UDID -->
+        <div id="checkSection" class="card">
+            <h1>نظام حماية RWS 🔒</h1>
+            <p>أدخل رقم UDID الخاص بجهازك للتحقق من اشتراكك والدخول لمتجر البلس.</p>
+            
+            <input type="text" id="userUdidCheck" class="input-udid" placeholder="أدخل UDID جهازك هنا...">
+            <button class="btn" onclick="verifyUdid()">فحص حالة الاشتراك 🔍</button>
+            <a href="https://get.udid.io/" target="_blank" class="btn btn-secondary">معرفة الـ UDID حقك (اضغط هنا)</a>
+            
+            <div id="statusResult" class="status-box"></div>
+        </div>
+
+        <!-- واجهة المتجر الرئيسية (تظهر بعد التفعيل) -->
+        <div id="storeSection">
+            
+            <!-- إشعار التحديث الفوري القادم من ملف الـ JSON -->
+            <div id="globalNotification" class="notification-banner">
+                📢 تنبيه RWS: <span id="notificationText"></span>
+            </div>
+
+            <div class="card" style="text-align: right; padding: 12px 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h2 style="font-size: 15px; color: #00d2ff; margin:0;">متجر RWS Store + 🚀</h2>
+                        <span style="font-size: 10px; color: #68d391;">الجهاز مفعل بشهادة 2026 ✅</span>
+                    </div>
+                    <button onclick="lockStore()" class="btn-secondary" style="width: auto; padding: 5px 10px; margin:0; font-size:10px;">إغلاق</button>
+                </div>
+            </div>
+
+            <!-- حاوية التطبيقات التي سيعبئها ملف الـ JSON تلقائياً -->
+            <div id="dynamicAppsContainer">
+                <p style="text-align: center; color: #a0aec0; font-size: 12px;">جاري تحميل التطبيقات والألعاب...</p>
+            </div>
+
+        </div>
+
+        <!-- صفحة تفاصيل التطبيق المنبثقة -->
+        <div id="appDetailsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img id="modalIcon" src="" class="modal-icon" alt="Icon">
+                    <div class="modal-info">
+                        <h2 id="modalTitle">اسم التطبيق</h2>
+                        <p>تطبيقات بلس والألعاب المهكرة (RWS)</p>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div>الإصدار<b id="modalVersion">-</b></div>
+                    <div>الحجم<b id="modalSize">-</b></div>
+                    <div>النوع<b>تثبيت مباشر</b></div>
+                </div>
+
+                <div class="modal-desc" id="modalDesc">
+                    وصف الميزات والخصائص...
+                </div>
+
+                <a id="modalInstallBtn" href="#" class="btn btn-success" style="margin-bottom: 10px; font-size: 15px; padding: 14px;">تثبيت التطبيق 📥</a>
+                <button onclick="closeAppDetails()" class="btn btn-secondary">الرجوع للمتجر</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            صنع بواسطة أبو فواز / RWS © 2026
+        </div>
+    </div>
+
+    <script>
+        function verifyUdid() {
+            let udid = document.getElementById("userUdidCheck").value.trim();
+            let users = JSON.parse(localStorage.getItem("rws_real_users")) || {};
+            let resultBox = document.getElementById("statusResult");
+
+            if (!udid) {
+                alert("الرجاء إدخال رقم الـ UDID أولاً");
+                return;
+            }
+
+            if (users[udid]) {
+                resultBox.className = "status-box active";
+                resultBox.innerHTML = `حالة الجهاز: مفعل بنجاح ✅<br><br><button onclick="enterStore()" class="btn btn-success">دخول المتجر الآن 🚀</button>`;
+            } else {
+                resultBox.className = "status-box inactive";
+                resultBox.innerHTML = `حالة الجهاز: غير مفعل ❌<br>رقم جهازك: <code style="color:#00d2ff; user-select:all;">${udid}</code><br>أرسل هذا الرقم للإدارة لتفعيله.`;
+            }
+        }
+
+        function enterStore() {
+            document.getElementById("checkSection").style.display = "none";
+            document.getElementById("storeSection").style.display = "block";
+            loadStoreData();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function lockStore() {
+            document.getElementById("storeSection").style.display = "none";
+            document.getElementById("checkSection").style.display = "block";
+        }
+
+        // جلب البيانات وقراءتها من ملف apps.json تلقائياً
+        function loadStoreData() {
+            fetch('apps.json')
+                .then(response => response.json())
+                .then(data => {
+                    // معالجة الإشعار والتنبيه
+                    if (data.notifications && data.notifications.active) {
+                        document.getElementById("globalNotification").style.display = "block";
+                        document.getElementById("notificationText").innerText = data.notifications.message;
+                    }
+
+                    let container = document.getElementById("dynamicAppsContainer");
+                    container.innerHTML = "";
+
+                    // تجميع التطبيقات حسب الأقسام
+                    let categories = {};
+                    data.apps.forEach(app => {
+                        if (!categories[app.category]) {
+                            categories[app.category] = [];
+                        }
+                        categories[app.category].push(app);
+                    });
+
+                    // بناء القوائم والعرض بالصفحة
+                    for (let cat in categories) {
+                        let titleHTML = `<div class="section-title">${cat}</div>`;
+                        let gridHTML = `<div class="app-grid">`;
+                        
+                        categories[cat].forEach(app => {
+                            let updateTag = app.needsUpdate ? `<span class="update-badge">تحديث جديد</span>` : '';
+                            gridHTML += `
+                                <div class="app-card" onclick='openAppDetails(${JSON.stringify(app)})'>
+                                    <div class="app-info">
+                                        <img src="${app.icon}" class="app-icon" alt="App">
+                                        <div class="app-details">
+                                            <h3>${app.name} ${updateTag}</h3>
+                                            <span>الإصدار: ${app.version} | الحجم: ${app.size}</span>
+                                            <span style="color: #68d391;">${app.desc.substring(0, 35)}...</span>
+                                        </div>
+                                    </div>
+                                    <button class="install-btn">عرض 📥</button>
+                                </div>
+                            `;
+                        });
+                        gridHTML += `</div>`;
+                        container.innerHTML += titleHTML + gridHTML;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("dynamicAppsContainer").innerHTML = `<p style="text-align:center; color:#fc8181; font-size:12px;">تأكد من وجود ملف apps.json بجانب الـ index.html</p>`;
+                });
+        }
+
+        function openAppDetails(app) {
+            document.getElementById("modalTitle").innerText = app.name;
+            document.getElementById("modalSize").innerText = app.size;
+            document.getElementById("modalVersion").innerText = app.version;
+            document.getElementById("modalIcon").src = app.icon;
+            document.getElementById("modalDesc").innerText = app.desc;
+            document.getElementById("modalInstallBtn").href = app.installUrl;
+            document.getElementById("appDetailsModal").style.display = "block";
+        }
+
+        function closeAppDetails() {
+            document.getElementById("appDetailsModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
