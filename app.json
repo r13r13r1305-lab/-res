@@ -1,173 +1,145 @@
-{
-  "notifications": {
-    "active": true,
-    "message": "🔥 تم تحديث مكتبة المتجر بـ +50 لعبة وتطبيق بلس مهكر لعام 2026!"
-  },
-  "apps": [
-    {
-      "id": "pool",
-      "name": "Star 8Ball Pool +",
-      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
-      "version": "5300",
-      "size": "124 MB",
-      "icon": "https://i.imgur.com/7H3Z0m2.png",
-      "desc": "هكـر سهم طويل، تعديل فوري، وكشف الكرات بدقة عالية بدون حظر.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/pool.plist",
-      "needsUpdate": true
-    },
-    {
-      "id": "pubg",
-      "name": "PUBG Mobile Hack +",
-      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
-      "version": "3.2.0",
-      "size": "1.8 GB",
-      "icon": "https://i.imgur.com/3QoG6w3.png",
-      "desc": "كشف أماكن اللاعبين (إسبوت)، هيدشوت تلقائي، وإزالة الارتداد بالكامل.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/pubg.plist",
-      "needsUpdate": true
-    },
-    {
-      "id": "brawl",
-      "name": "Brawl Stars Mod +",
-      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
-      "version": "56.0",
-      "size": "450 MB",
-      "icon": "https://i.imgur.com/8QWv7p1.png",
-      "desc": "جواهر غير محدودة، فتح جميع الشخصيات والجلود القتالية مجاناً.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/brawl.plist",
-      "needsUpdate": true
-    },
-    {
-      "id": "subway",
-      "name": "Subway Surfers Hack",
-      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
-      "version": "3.15",
-      "size": "180 MB",
-      "icon": "https://i.imgur.com/1Z9x8k2.png",
-      "desc": "عملات ومفاتيح لا نهائية، قفزة خارقة وعدم الموت عند الاصطدام.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/subway.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "minecraft",
-      "name": "Minecraft PE Deluxe",
-      "category": "⚡ ألعاب مهكرة وتحديثات سريعة",
-      "version": "1.20.80",
-      "size": "600 MB",
-      "icon": "https://i.imgur.com/7H3Z0m2.png",
-      "desc": "النسخة الكاملة المفتوحة، جلود وبصمات نادرة بدون شراء مسبق.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/minecraft.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "tiktok",
-      "name": "TikTok ++ (بدون إعلانات)",
-      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
-      "version": "34.5",
-      "size": "95 MB",
-      "icon": "https://i.imgur.com/3QoG6w3.png",
-      "desc": "إزالة الإعلانات بالكامل، تحميل الفيديوهات بدون حقوق، تغيير الموقع.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/tiktok.plist",
-      "needsUpdate": true
-    },
-    {
-      "id": "snap",
-      "name": "Snapchat Phantom ++",
-      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
-      "version": "12.8",
-      "size": "140 MB",
-      "icon": "https://i.imgur.com/8QWv7p1.png",
-      "desc": "حفظ الستوري والرسائل سراَ، إخفاء جاري الكتابة ومشاهدة الـ Snap بدون علم الطرف الآخر.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/snap.plist",
-      "needsUpdate": true
-    },
-    {
-      "id": "insta",
-      "name": "Instagram Rocket +",
-      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
-      "version": "310.0",
-      "size": "115 MB",
-      "icon": "https://i.imgur.com/1Z9x8k2.png",
-      "desc": "تحميل الصور والفيديوهات والريلز بضغطة زر، إخفاء مشاهدة الرسائل.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/insta.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "whatsapp",
-      "name": "WhatsApp Watusi",
-      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
-      "version": "2.26",
-      "size": "85 MB",
-      "icon": "https://i.imgur.com/7H3Z0m2.png",
-      "desc": "إخفاء الظهور، قراءة المحذوفات، حفظ الحالات، وقفل الواتساب ببصمة.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/whatsapp.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "twitter",
-      "name": "Twitter / X Pro ++",
-      "category": "📱 تطبيقات التواصل الاجتماعي بلس",
-      "version": "10.4",
-      "size": "90 MB",
-      "icon": "https://i.imgur.com/3QoG6w3.png",
-      "desc": "تحميل الفيديوهات مباشرة من التغريدات، إيقاف الإعلانات الترويجية.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/twitter.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "youtube",
-      "name": "YouTube Plus (uYouEnhanced)",
-      "category": "🎬 برامج الترفيه والميديا بلس",
-      "version": "19.2",
-      "size": "110 MB",
-      "icon": "https://i.imgur.com/8QWv7p1.png",
-      "desc": "تشغيل الفيديوهات بالخلفية، حظر الإعلانات تماماً، تحميل المقاطع بجودات عالية.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/youtube.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "twitch",
-      "name": "Twitch Turbo ++",
-      "category": "🎬 برامج الترفيه والميديا بلس",
-      "version": "17.1",
-      "size": "75 MB",
-      "icon": "https://i.imgur.com/1Z9x8k2.png",
-      "desc": "منع الإعلانات البثية، تشغيل البثوث بالخلفية وبجودة عالية جداً.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/twitch.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "spotify",
-      "name": "Spotify Premium ++",
-      "category": "🎬 برامج الترفيه والميديا بلس",
-      "version": "8.9",
-      "size": "95 MB",
-      "icon": "https://i.imgur.com/7H3Z0m2.png",
-      "desc": "تخطي غير محدود للأغاني، استماع بدون إعلانات، وتحميل الأغاني أوفلاين.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/spotify.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "picsart",
-      "name": "PicsArt Gold Pro",
-      "category": "🎨 أدوات التصميم وصناعة المحتوى",
-      "version": "22.5",
-      "size": "130 MB",
-      "icon": "https://i.imgur.com/3QoG6w3.png",
-      "desc": "فتح جميع الفلاتر، القوالب المدفوعة، والأدوات الاحترافية مجاناً.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/picsart.plist",
-      "needsUpdate": false
-    },
-    {
-      "id": "capcut",
-      "name": "CapCut Pro VIP",
-      "category": "🎨 أدوات التصميم وصناعة المحتوى",
-      "version": "10.8",
-      "size": "210 MB",
-      "icon": "https://i.imgur.com/8QWv7p1.png",
-      "desc": "تأثيرات الفيديو المدفوعة، إزالة العلامة المائية، وقوالب المونتاج الاحترافية.",
-      "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/rws/capcut.plist",
-      "needsUpdate": true
-    }
-  ]
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر RWS Store</title>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 15px 20px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .header h1 {
+            font-size: 18px;
+            color: #38bdf8;
+            margin: 0 0 8px 0;
+        }
+        .header p {
+            font-size: 13px;
+            color: #4ade80;
+            margin: 0;
+        }
+        .app-list {
+            width: 100%;
+            max-width: 500px;
+        }
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+        .app-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        .app-info {
+            flex-grow: 1;
+        }
+        .app-name {
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0 0 4px 0;
+        }
+        .app-desc {
+            font-size: 12px;
+            color: #94a3b8;
+            margin: 0;
+        }
+        .install-btn {
+            background: #38bdf8;
+            color: #0b0f19;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #64748b;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🚀 + RWS Store متجر</h1>
+        <p>✅ الجهاز مفعل بشهادة 2026</p>
+    </div>
+
+    <div class="app-list" id="appContainer">
+        <!-- التطبيقات تظهر هنا تلقائياً -->
+    </div>
+
+    <div class="footer">
+        صنع بواسطة أبو فواز / 2026 © RWS
+    </div>
+
+    <script>
+        const data = {
+            "apps": [
+                {
+                    "name": "يوتيوب بلس (مكرر)",
+                    "desc": "إيقاف الإعلانات وتشغيل بالخلفية",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/3d/26/313d26b0-7a55-2d43-52f2-f8db891fcdfb/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-22-85-220.png/512x512bb.jpg",
+                    "installUrl": "#"
+                },
+                {
+                    "name": "تيك توك بلس",
+                    "desc": "تحميل الفيديوهات بدون علامة مائية",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0d/b7/66/0db7662d-0b73-0f73-199f-7db92cf571ef/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "installUrl": "#"
+                },
+                {
+                    "name": "دلتا إكسترا (Delta)",
+                    "desc": "محاكي ألعاب نينتندو وسگا",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/9f/62/919f6261-f3b1-4d92-7108-95a0bc07e26d/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "installUrl": "#"
+                }
+            ]
+        };
+
+        const container = document.getElementById('appContainer');
+        data.apps.forEach(app => {
+            container.innerHTML += `
+                <div class="app-card">
+                    <img src="${app.icon}" class="app-icon" alt="">
+                    <div class="app-info">
+                        <div class="app-name">${app.name}</div>
+                        <div class="app-desc">${app.desc}</div>
+                    </div>
+                    <a href="${app.installUrl}" class="install-btn">تثبيت</a>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
