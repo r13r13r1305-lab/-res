@@ -21,6 +21,10 @@
         .active { background: #22543d; color: #68d391; display: block; }
         .inactive { background: #742a2a; color: #fc8181; display: block; }
 
+        /* لوحة التحكم السرية */
+        #adminPanel { display: none; margin-top: 20px; border-top: 1px solid #2d3748; padding-top: 15px; text-align: right; }
+        .admin-title { color: #f6ad55; font-size: 14px; font-weight: bold; margin-bottom: 10px; }
+
         /* المتجر وتطبيقاته */
         #storeSection { display: none; }
         .notification-banner { background: linear-gradient(135deg, #d97706, #b45309); color: white; padding: 12px; border-radius: 12px; font-size: 12px; margin-bottom: 20px; text-align: center; font-weight: bold; box-shadow: 0 4px 15px rgba(217,119,6,0.3); display: none; }
@@ -55,19 +59,30 @@
         <!-- مرحلة التحقق من الـ UDID -->
         <div id="checkSection" class="card">
             <h1>نظام حماية RWS 🔒</h1>
-            <p>أدخل رقم UDID الخاص بجهازك للتحقق من اشتراكك والدخول لمتجر البلس.</p>
+            <p>أدخل رقم UDID الخاص بجهازك للتحقق من اشتراكك وتثبيت تطبيق البلس.</p>
             
             <input type="text" id="userUdidCheck" class="input-udid" placeholder="أدخل UDID جهازك هنا...">
             <button class="btn" onclick="verifyUdid()">فحص حالة الاشتراك 🔍</button>
             <a href="https://get.udid.io/" target="_blank" class="btn btn-secondary">معرفة الـ UDID حقك (اضغط هنا)</a>
             
             <div id="statusResult" class="status-box"></div>
+
+            <!-- زر فتح لوحة التحكم السرية -->
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="javascript:void(0);" onclick="requestAdminAccess()" style="color: #718096; font-size: 10px; text-decoration: none;">🔐 دخول لوحة التحكم</a>
+            </div>
+
+            <!-- لوحة التحكم لإضافة أجهزة جديدة -->
+            <div id="adminPanel">
+                <div class="admin-title">لوحة إدارة الأجهزة المفعلة 🛠️</div>
+                <p style="font-size: 11px; color: #a0aec0;">أدخل رقم الـ UDID الخاص بالعميل لتفعيله فوراً:</p>
+                <input type="text" id="newUdidInput" class="input-udid" placeholder="ضع UDID العميل هنا...">
+                <button class="btn btn-success" onclick="addNewUdid()" style="font-size: 12px; padding: 8px;">تفعيل الجهاز الآن ✅</button>
+            </div>
         </div>
 
-        <!-- واجهة المتجر الرئيسية (تظهر بعد التفعيل) -->
+        <!-- واجهة المتجر الرئيسية -->
         <div id="storeSection">
-            
-            <!-- إشعار التحديث الفوري القادم من ملف الـ JSON -->
             <div id="globalNotification" class="notification-banner">
                 📢 تنبيه RWS: <span id="notificationText"></span>
             </div>
@@ -82,11 +97,9 @@
                 </div>
             </div>
 
-            <!-- حاوية التطبيقات التي سيعبئها ملف الـ JSON تلقائياً -->
             <div id="dynamicAppsContainer">
                 <p style="text-align: center; color: #a0aec0; font-size: 12px;">جاري تحميل التطبيقات والألعاب...</p>
             </div>
-
         </div>
 
         <!-- صفحة تفاصيل التطبيق المنبثقة -->
@@ -106,9 +119,7 @@
                     <div>النوع<b>تثبيت مباشر</b></div>
                 </div>
 
-                <div class="modal-desc" id="modalDesc">
-                    وصف الميزات والخصائص...
-                </div>
+                <div class="modal-desc" id="modalDesc">وصف الميزات والخصائص...</div>
 
                 <a id="modalInstallBtn" href="#" class="btn btn-success" style="margin-bottom: 10px; font-size: 15px; padding: 14px;">تثبيت التطبيق 📥</a>
                 <button onclick="closeAppDetails()" class="btn btn-secondary">الرجوع للمتجر</button>
@@ -121,6 +132,8 @@
     </div>
 
     <script>
+        const ADMIN_PASS = "Regzhenansjju7jb!b!b!﷼&&-@@/@kka";
+
         function verifyUdid() {
             let udid = document.getElementById("userUdidCheck").value.trim();
             let users = JSON.parse(localStorage.getItem("rws_real_users")) || {};
@@ -140,6 +153,30 @@
             }
         }
 
+        function requestAdminAccess() {
+            let password = prompt("أدخل كلمة سر لوحة التحكم:");
+            if (password === ADMIN_PASS) {
+                let panel = document.getElementById("adminPanel");
+                panel.style.display = panel.style.display === "block" ? "none" : "block";
+            } else if (password !== null) {
+                alert("كلمة السر خاطئة! ❌");
+            }
+        }
+
+        function addNewUdid() {
+            let newUdid = document.getElementById("newUdidInput").value.trim();
+            if (!newUdid) {
+                alert("الرجاء إدخال الـ UDID المراد تفعيله");
+                return;
+            }
+            let users = JSON.parse(localStorage.getItem("rws_real_users")) || {};
+            users[newUdid] = true;
+            localStorage.setItem("rws_real_users", JSON.stringify(users));
+            alert("تم تفعيل الـ UDID بنجاح في متصفحك! ✅");
+            document.getElementById("newUdidInput").value = "";
+            document.getElementById("adminPanel").style.display = "none";
+        }
+
         function enterStore() {
             document.getElementById("checkSection").style.display = "none";
             document.getElementById("storeSection").style.display = "block";
@@ -152,12 +189,10 @@
             document.getElementById("checkSection").style.display = "block";
         }
 
-        // جلب البيانات وقراءتها من ملف apps.json تلقائياً
         function loadStoreData() {
             fetch('apps.json')
                 .then(response => response.json())
                 .then(data => {
-                    // معالجة الإشعار والتنبيه
                     if (data.notifications && data.notifications.active) {
                         document.getElementById("globalNotification").style.display = "block";
                         document.getElementById("notificationText").innerText = data.notifications.message;
@@ -166,16 +201,12 @@
                     let container = document.getElementById("dynamicAppsContainer");
                     container.innerHTML = "";
 
-                    // تجميع التطبيقات حسب الأقسام
                     let categories = {};
                     data.apps.forEach(app => {
-                        if (!categories[app.category]) {
-                            categories[app.category] = [];
-                        }
+                        if (!categories[app.category]) categories[app.category] = [];
                         categories[app.category].push(app);
                     });
 
-                    // بناء القوائم والعرض بالصفحة
                     for (let cat in categories) {
                         let titleHTML = `<div class="section-title">${cat}</div>`;
                         let gridHTML = `<div class="app-grid">`;
@@ -201,7 +232,7 @@
                     }
                 })
                 .catch(error => {
-                    document.getElementById("dynamicAppsContainer").innerHTML = `<p style="text-align:center; color:#fc8181; font-size:12px;">تأكد من وجود ملف apps.json بجانب الـ index.html</p>`;
+                    document.getElementById("dynamicAppsContainer").innerHTML = `<p style="text-align:center; color:#fc8181; font-size:12px;">تأكد من رفع ملف apps.json بجانب الـ index.html</p>`;
                 });
         }
 
