@@ -47,7 +47,7 @@
     <div class="container">
         <div id="checkSection" class="card">
             <h1>نظام حماية RWS 🔒</h1>
-            <p>أدخل رقم UDID الخاص بجهازك للتحقق من اشتراكك وتثبيت تطبيق البلس.</p>
+            <p>أدخل رقم UDID الخاص بجهازك للتحقق من اشتراكك وتثبيت تطبيقات البلس.</p>
             <input type="text" id="userUdidCheck" class="input-udid" placeholder="أدخل UDID جهازك هنا...">
             <button class="btn" onclick="verifyUdid()">فحص حالة الاشتراك 🔍</button>
             <a href="https://get.udid.io/" target="_blank" class="btn btn-secondary">معرفة الـ UDID حقك (اضغط هنا)</a>
@@ -65,7 +65,7 @@
 
         <div id="storeSection">
             <div id="globalNotification" class="notification-banner">
-                📢 تنبيه RWS: تم تحديث جميع تطبيقات البلس إلى آخر اصدار!
+                📢 تنبيه RWS: تم إطلاق المتجر الشامل بجميع تطبيقات البلس والألعاب المهكرة!
             </div>
             <div class="card" style="text-align: right; padding: 12px 15px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -107,9 +107,9 @@
     <script>
         const ADMIN_PASS = "Regzhenansjju7jb!b!b!﷼&&-@@/@kka";
 
-        // بيانات التطبيقات مدمجة بالكامل هنا لتجنب مشاكل الـ fetch
         const storeData = {
             "apps": [
+                // --- تطبيقات التواصل الاجتماعي والبلس ---
                 {
                     "name": "يوتيوب بلس (YouTube Plus)",
                     "category": "تطبيقات بلس",
@@ -137,6 +137,100 @@
                     "size": "85 MB",
                     "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0d/95/ec/0d95ecbb-a309-8472-e1e7-d2e7d70cfd2c/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
                     "desc": "إخفاء الظهور، حفظ الحالة، قفل التطبيق برمز سرّي، وخيارات تحكم كاملة بالخصوصية.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+                {
+                    "name": "سناب شات بلس (Snapchat Plus)",
+                    "category": "تطبيقات بلس",
+                    "version": "12.45.1",
+                    "size": "140 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/0a/88/8a0a88b5-6548-52c6-3392-563b7e77d24a/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "حفظ الستوري والرسائل، تعطيل جاري الكتابة، وتغيير الموقع.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+                {
+                    "name": "انستقرام بلس (Instagram Plus)",
+                    "category": "تطبيقات بلس",
+                    "version": "315.0",
+                    "size": "120 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/28/70/cb/2870cbde-724f-a9cb-c299-bbcb0a927d2c/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "تحميل الصور والفيديوهات والريلز، تكبير صور الحسابات، وإخفاء مشاهدة الرسائل.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+                {
+                    "name": "تويتر / إكس بلس (Twitter Plus)",
+                    "category": "تطبيقات بلس",
+                    "version": "10.20",
+                    "size": "100 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b8/b2/e3/b8b2e3ad-d717-38e5-3cf5-5231c51952df/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "تحميل الفيديوهات مباشرة، إزالة التغريدات الممولة والإعلانات.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+
+                // --- الألعاب المهكرة ومحاكيات السكربتات ---
+                {
+                    "name": "دلتا إكسكيوتر (Delta Executor)",
+                    "category": "ألعاب مهكرة",
+                    "version": "2.5.1",
+                    "size": "70 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/83/9a/5a839a8c-2358-8547-5a23-40e10b12f652/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "أقوى محاكي وسكربتات لععبة روبلوكس مع دعم كامل لتنفيذ السكربتات والأكواد.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+                {
+                    "name": "بับجي موبايل المهكرة (PUBG Mobile)",
+                    "category": "ألعاب مهكرة",
+                    "version": "3.1.0",
+                    "size": "1.2 GB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8b/6f/32/8b6f3223-9db8-5524-7e8c-8be923831b1c/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "نسخة مهكرة مع كشف الأماكن وثبات الويب وسرعة إضافية.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": true
+                },
+                {
+                    "name": "ماينكرافت المعدلة (Minecraft)",
+                    "category": "ألعاب مهكرة",
+                    "version": "1.20.80",
+                    "size": "450 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/60/7f/9c607fa6-845f-4a34-2e91-c6381e626e25/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "مفاتيح مفتوحة، سكنات مدفوعة متاحة بالكامل، وبناء لا محدود.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+                {
+                    "name": "كار פארكنغ المهكرة (Car Parking)",
+                    "category": "ألعاب مهكرة",
+                    "version": "4.8.5",
+                    "size": "850 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/95/92/79/959279ea-03d4-e60d-6e47-526bc5a62f59/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "أموال غير محدودة، جميع السيارات مفتوحة ومجانية.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+
+                // --- أدوات التوقيع والبرامج المساعدة ---
+                {
+                    "name": "أداة إساين (ESign Signer)",
+                    "category": "أدوات وتطبيقات التوقيع",
+                    "version": "5.0.2",
+                    "size": "35 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/1e/8a/5c/1e8a5c2d-9654-e421-2e11-458129731422/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "أقوى تطبيق لتوقيع ملفات IPA وتثبيتها مباشرة بشهادة المؤسسة على الآيفون.",
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
+                    "needsUpdate": false
+                },
+                {
+                    "name": "أداة سكارليت (Scarlet)",
+                    "category": "أدوات وتطبيقات التوقيع",
+                    "version": "1.0.2",
+                    "size": "25 MB",
+                    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/d5/43/82/d543825a-4b95-d211-1c31-31415926535a/AppIcon-0-0-1x_U007emarketing-0-7-0-sRGB-85-220.png/512x512bb.jpg",
+                    "desc": "متجر وتوقيع خارجي سهل وسريع لتثبيت التطبيقات بدون كمبيوتر.",
                     "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
                     "needsUpdate": false
                 }
