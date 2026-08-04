@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RWS Store - متجر التطبيقات والألعاب الشامل</title>
+    <title>RWS Store - المتجر المباشر</title>
     <style>
         body { background-color: #0b0d17; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 12px; }
         .container { max-width: 500px; margin: 0 auto; }
@@ -13,14 +13,13 @@
         .input-udid { width: 100%; padding: 10px; background: #0b0d17; border: 1px solid #2d3748; color: white; border-radius: 10px; font-size: 12px; text-align: center; margin-bottom: 8px; box-sizing: border-box; }
         .btn { display: block; width: 100%; padding: 11px; background: linear-gradient(135deg, #00d2ff, #3a7bd5); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 13px; border: none; cursor: pointer; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,210,255,0.3); }
         .btn-secondary { background: #2d3748; margin-top: 6px; font-size: 11px; padding: 9px; box-shadow: none; color: #cbd5e0; }
-        .btn-success { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+        .btn-success { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16,185,129,0.3); text-align: center; }
         .status-box { margin-top: 12px; padding: 10px; border-radius: 10px; font-size: 11px; display: none; text-align: right; }
         .active { background: #22543d; color: #68d391; display: block; }
         .inactive { background: #742a2a; color: #fc8181; display: block; }
         #adminPanel { display: none; margin-top: 15px; border-top: 1px solid #2d3748; padding-top: 12px; text-align: right; }
         .admin-title { color: #f6ad55; font-size: 13px; font-weight: bold; margin-bottom: 8px; }
         #storeSection { display: none; }
-        .notification-banner { background: linear-gradient(135deg, #d97706, #b45309); color: white; padding: 10px; border-radius: 10px; font-size: 11px; margin-bottom: 15px; text-align: center; font-weight: bold; }
         .section-title { font-size: 14px; color: #fff; margin: 18px 0 8px 0; text-align: right; border-right: 3px solid #00d2ff; padding-right: 6px; }
         .app-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
         .app-card { background: #16192b; padding: 10px 12px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #2d3748; cursor: pointer; transition: 0.2s; }
@@ -31,7 +30,6 @@
         .app-details h3 { font-size: 12px; margin: 0 0 2px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .app-details span { font-size: 9px; color: #a0aec0; display: block; }
         .install-btn { background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 6px 12px; border-radius: 7px; font-size: 11px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
-        .update-badge { background: #742a2a; color: #fc8181; padding: 1px 4px; border-radius: 3px; font-size: 8px; margin-right: 4px; }
         #appDetailsModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11,13,23,0.96); z-index: 100; overflow-y: auto; padding: 15px; box-sizing: border-box; }
         .modal-content { max-width: 420px; margin: 25px auto; background: #16192b; border-radius: 18px; padding: 18px; border: 1px solid #2d3748; text-align: center; }
         .modal-header { display: flex; align-items: center; gap: 12px; text-align: right; margin-bottom: 15px; border-bottom: 1px solid #2d3748; padding-bottom: 12px; }
@@ -46,34 +44,31 @@
 </head>
 <body>
     <div class="container">
-        <!-- قسم التحقق -->
+        <!-- قسم التحقق والأمان -->
         <div id="checkSection" class="card">
             <h1>نظام حماية RWS 🔒</h1>
-            <p>أدخل رقم UDID الخاص بجهازك لتفعيل المتجر وتثبيت التطبيقات.</p>
+            <p>أدخل رقم UDID لتفعيل متجرك وتثبيت التطبيقات.</p>
             <input type="text" id="userUdidCheck" class="input-udid" placeholder="أدخل UDID جهازك هنا...">
-            <button class="btn" onclick="verifyUdid()">فحص حالة الاشتراك 🔍</button>
-            <a href="https://get.udid.io/" target="_blank" class="btn btn-secondary">معرفة الـ UDID حقك (اضغط هنا)</a>
+            <button class="btn" onclick="verifyUdid()">فحص التفعيل 🔍</button>
+            <a href="https://get.udid.io/" target="_blank" class="btn btn-secondary">معرفة الـ UDID (اضغط هنا)</a>
             <div id="statusResult" class="status-box"></div>
             <div style="margin-top: 15px; text-align: center;">
-                <a href="javascript:void(0);" onclick="requestAdminAccess()" style="color: #718096; font-size: 10px; text-decoration: none;">🔐 دخول لوحة التحكم</a>
+                <a href="javascript:void(0);" onclick="requestAdminAccess()" style="color: #718096; font-size: 10px; text-decoration: none;">🔐 لوحة التحكم</a>
             </div>
             <div id="adminPanel">
-                <div class="admin-title">لوحة إدارة الأجهزة المفعلة 🛠️</div>
-                <input type="text" id="newUdidInput" class="input-udid" placeholder="ضع UDID العميل هنا...">
-                <button class="btn btn-success" onclick="addNewUdid()" style="font-size: 11px; padding: 7px;">تفعيل الجهاز الآن ✅</button>
+                <div class="admin-title">تفعيل جهاز جديد 🛠️</div>
+                <input type="text" id="newUdidInput" class="input-udid" placeholder="ضع UDID العميل...">
+                <button class="btn btn-success" onclick="addNewUdid()" style="font-size: 11px; padding: 7px;">تفعيل ✅</button>
             </div>
         </div>
 
         <!-- قسم المتجر -->
         <div id="storeSection">
-            <div id="globalNotification" class="notification-banner">
-                📢 تم تحديث جميع التطبيقات والألعاب إلى أخر إصدار!
-            </div>
-            <div class="card" style="text-align: right; padding: 10px 14px;">
+            <div class="card" style="text-align: right; padding: 10px 14px; margin-bottom: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <h2 style="font-size: 14px; color: #00d2ff; margin:0;">متجر RWS Store 🚀</h2>
-                        <span style="font-size: 9px; color: #68d391;">الجهاز مفعل بشهادة 2026 ✅</span>
+                        <h2 style="font-size: 14px; color: #00d2ff; margin:0;">RWS Store 🚀</h2>
+                        <span style="font-size: 9px; color: #68d391;">متجر التطبيقات المباشر ✅</span>
                     </div>
                     <button onclick="lockStore()" class="btn-secondary" style="width: auto; padding: 4px 8px; margin:0; font-size:9px;">قفل</button>
                 </div>
@@ -81,24 +76,24 @@
             <div id="dynamicAppsContainer"></div>
         </div>
 
-        <!-- نافذة تفاصيل التطبيق والتثبيت -->
+        <!-- نافذة تثبيت التطبيق -->
         <div id="appDetailsModal">
             <div class="modal-content">
                 <div class="modal-header">
                     <img id="modalIcon" src="" class="modal-icon" alt="Icon">
                     <div class="modal-info">
                         <h2 id="modalTitle">اسم التطبيق</h2>
-                        <p>تطبيقات بلس والألعاب المهكرة (RWS)</p>
+                        <p>تثبيت مباشر من RWS Store</p>
                     </div>
                 </div>
                 <div class="stats-row">
                     <div>الإصدار<b id="modalVersion">-</b></div>
                     <div>الحجم<b id="modalSize">-</b></div>
-                    <div>النوع<b>تثبيت مباشر</b></div>
+                    <div>النوع<b>تثبيت مباشر OTA</b></div>
                 </div>
-                <div class="modal-desc" id="modalDesc">وصف الميزات والخصائص...</div>
-                <a id="modalInstallBtn" href="#" class="btn btn-success" style="margin-bottom: 8px; font-size: 14px; padding: 12px;">تثبيت التطبيق 📥</a>
-                <button onclick="closeAppDetails()" class="btn btn-secondary">الرجوع للمتجر</button>
+                <div class="modal-desc" id="modalDesc">وصف التطبيق...</div>
+                <a id="modalInstallBtn" href="#" class="btn btn-success" style="margin-bottom: 8px; font-size: 14px; padding: 12px; display: block; text-decoration: none;">تثبيت التطبيق الآن 📥</a>
+                <button onclick="closeAppDetails()" class="btn btn-secondary" style="width:150px; margin: 0 auto;">إغلاق</button>
             </div>
         </div>
 
@@ -112,59 +107,42 @@
 
         const storeData = {
             "apps": [
-                // --- تطبيقات التواصل الاجتماعي والبلس ---
                 {
                     "name": "يوتيوب بلس (YouTube Plus)",
-                    "category": "تطبيقات بلس الأساسية",
+                    "category": "تطبيقات بلس",
                     "version": "19.10.2",
                     "size": "95 MB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4fa.png",
                     "desc": "إزالة الإعلانات بالكامل، تشغيل الفيديوهات بالخلفية، وتنزيل المقاطع بدقة عالية.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 },
                 {
                     "name": "تيك توك بلس (TikTok Plus)",
-                    "category": "تطبيقات بلس الأساسية",
+                    "category": "تطبيقات بلس",
                     "version": "33.0.0",
                     "size": "110 MB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3a5.png",
                     "desc": "تحميل الفيديوهات بدون علامة مائية، إزالة الإعلانات، وتجاوز قيود البث.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 },
                 {
                     "name": "واتساب بلس (WhatsApp Watusi)",
-                    "category": "تطبيقات بلس الأساسية",
+                    "category": "تطبيقات بلس",
                     "version": "2.24.5",
                     "size": "85 MB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4f1.png",
                     "desc": "إخفاء الظهور، حفظ الحالة، قفل التطبيق برمز سرّي، وخيارات تحكم كاملة بالخصوصية.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 },
                 {
                     "name": "سناب شات بلس (Snapchat Plus)",
-                    "category": "تطبيقات بلس الأساسية",
+                    "category": "تطبيقات بلس",
                     "version": "12.45.1",
                     "size": "140 MB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f47b.png",
                     "desc": "حفظ الستوري والرسائل، تعطيل جاري الكتابة، وتغيير الموقع.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 },
-                {
-                    "name": "انستقرام بلس (Instagram Plus)",
-                    "category": "تطبيقات بلس الأساسية",
-                    "version": "315.0",
-                    "size": "120 MB",
-                    "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4f7.png",
-                    "desc": "تحميل الصور والفيديوهات والريلز، تكبير صور الحسابات، وإخفاء مشاهدة الرسائل.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
-                },
-
-                // --- الألعاب المهكرة ومحاكيات السكربتات ---
                 {
                     "name": "دلتا إكسكيوتر (Delta Executor)",
                     "category": "الألعاب والسكربتات المهكرة",
@@ -172,8 +150,7 @@
                     "size": "70 MB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3ae.png",
                     "desc": "أقوى محاكي وسكربتات لععبة روبلوكس مع دعم كامل لتنفيذ السكربتات والأكواد.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 },
                 {
                     "name": "ببجي موبايل المهكرة (PUBG Mobile)",
@@ -182,50 +159,16 @@
                     "size": "1.2 GB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f52b.png",
                     "desc": "نسخة مهكرة مع كشف الأماكن وثبات الويب وسرعة إضافية.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": true
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 },
-                {
-                    "name": "ماينكرافت المعدلة (Minecraft)",
-                    "category": "الألعاب والسكربتات المهكرة",
-                    "version": "1.20.80",
-                    "size": "450 MB",
-                    "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f1.png",
-                    "desc": "مفاتيح مفتوحة، سكنات مدفوعة متاحة بالكامل، وبناء لا محدود.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
-                },
-                {
-                    "name": "كار פארكنغ المهكرة (Car Parking)",
-                    "category": "الألعاب والسكربتات المهكرة",
-                    "version": "4.8.5",
-                    "size": "850 MB",
-                    "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f697.png",
-                    "desc": "أموال غير محدودة، جميع السيارات مفتوحة ومجانية.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
-                },
-
-                // --- أدوات التوقيع والبرامج المساعدة ---
                 {
                     "name": "أداة إساين (ESign Signer)",
-                    "category": "أدوات وتطبيقات التوقيع والتوثيق",
+                    "category": "أدوات التوقيع والتوثيق",
                     "version": "5.0.2",
                     "size": "35 MB",
                     "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f511.png",
                     "desc": "أقوى تطبيق لتوقيع ملفات IPA وتثبيتها مباشرة بشهادة المؤسسة على الآيفون.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
-                },
-                {
-                    "name": "أداة سكارليت (Scarlet)",
-                    "category": "أدوات وتطبيقات التوقيع والتوثيق",
-                    "version": "1.0.2",
-                    "size": "25 MB",
-                    "icon": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f680.png",
-                    "desc": "متجر وتوقيع خارجي سهل وسريع لتثبيت التطبيقات بدون كمبيوتر.",
-                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist",
-                    "needsUpdate": false
+                    "installUrl": "itms-services://?action=download-manifest&url=https://r13r13r1305-lab.github.io/-res/manifest.plist"
                 }
             ]
         };
@@ -236,39 +179,34 @@
             let resultBox = document.getElementById("statusResult");
 
             if (!udid) {
-                alert("الرجاء إدخال رقم الـ UDID أولاً");
+                alert("الرجاء إدخال رقم الـ UDID");
                 return;
             }
 
             if (users[udid]) {
                 resultBox.className = "status-box active";
-                resultBox.innerHTML = `حالة الجهاز: مفعل بنجاح ✅<br><br><button onclick="enterStore()" class="btn btn-success">دخول المتجر الآن 🚀</button>`;
+                resultBox.innerHTML = `الجهاز مفعل بنجاح ✅<br><br><button onclick="enterStore()" class="btn btn-success">دخول المتجر 🚀</button>`;
             } else {
                 resultBox.className = "status-box inactive";
-                resultBox.innerHTML = `حالة الجهاز: غير مفعل ❌<br>رقم جهازك: <code style="color:#00d2ff; user-select:all;">${udid}</code><br>أرسل هذا الرقم للإدارة لتفعيله.`;
+                resultBox.innerHTML = `الجهاز غير مفعل ❌<br>رقم جهازك: <code style="color:#00d2ff; user-select:all;">${udid}</code>`;
             }
         }
 
         function requestAdminAccess() {
-            let password = prompt("أدخل كلمة سر لوحة التحكم:");
+            let password = prompt("كلمة سر لوحة التحكم:");
             if (password === ADMIN_PASS) {
                 let panel = document.getElementById("adminPanel");
                 panel.style.display = panel.style.display === "block" ? "none" : "block";
-            } else if (password !== null) {
-                alert("كلمة السر خاطئة! ❌");
             }
         }
 
         function addNewUdid() {
             let newUdid = document.getElementById("newUdidInput").value.trim();
-            if (!newUdid) {
-                alert("الرجاء إدخال الـ UDID المراد تفعيله");
-                return;
-            }
+            if (!newUdid) return;
             let users = JSON.parse(localStorage.getItem("rws_real_users")) || {};
             users[newUdid] = true;
             localStorage.setItem("rws_real_users", JSON.stringify(users));
-            alert("تم تفعيل الـ UDID بنجاح في متصفحك! ✅");
+            alert("تم التفعيل بنجاح! ✅");
             document.getElementById("newUdidInput").value = "";
             document.getElementById("adminPanel").style.display = "none";
         }
@@ -300,17 +238,16 @@
                 let gridHTML = `<div class="app-grid">`;
                 
                 categories[cat].forEach(app => {
-                    let updateTag = app.needsUpdate ? `<span class="update-badge">تحديث</span>` : '';
                     gridHTML += `
                         <div class="app-card" onclick='openAppDetails(${JSON.stringify(app)})'>
                             <div class="app-info">
                                 <img src="${app.icon}" class="app-icon" alt="App">
                                 <div class="app-details">
-                                    <h3>${app.name} ${updateTag}</h3>
+                                    <h3>${app.name}</h3>
                                     <span>الإصدار: ${app.version} | ${app.size}</span>
                                 </div>
                             </div>
-                            <button class="install-btn">عرض 📥</button>
+                            <button class="install-btn">تحميل 📥</button>
                         </div>
                     `;
                 });
